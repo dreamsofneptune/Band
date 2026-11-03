@@ -3,147 +3,552 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banda de Metal Progresivo</title>
-  <meta name="description" content="Landing page for Dreams of Neptune — with links to Spotify, Apple Music, Instagram, TikTok and YouTube." />
+  <title>Dreams Of Neptune</title>
+  <meta name="description" content="Dreams Of Neptune crea herramientas para músicos. Conoce Tonali: practica teoría musical y entrena tu oído con ejercicios cortos." />
+  <meta name="theme-color" content="#0a0a0b" />
+  <link rel="icon" type="image/png" href="img/Logo_1.png" />
+  <meta property="og:title" content="Dreams Of Neptune" />
+  <meta property="og:description" content="Herramientas para músicos, hechas por músicos. Conoce Tonali." />
+  <meta property="og:image" content="img/Logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset básico */
-    * { box-sizing: border-box; }
+    :root {
+      --bg: #0a0a0b;
+      --bg-2: #111113;
+      --ink: #ebe6da;          /* crema del logo */
+      --ink-2: #a9a49a;
+      --ink-3: #6f6b64;
+      --line: rgba(235, 230, 218, 0.1);
+      --tonali-1: #5a4bb0;
+      --tonali-2: #2a6f8a;
+      --tonali-bg: #0d0a1e;
+      --radius: 18px;
+      --max: 1120px;
+    }
 
-    /* Fondo animado metal progresivo */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: #e6e6e6;
-      background: linear-gradient(270deg, #0b0b0b, #191919, #242424, #101016);
-      background-size: 600% 600%;
-      animation: metalFlow 20s ease infinite;
-      padding: 32px 16px;
-    }
-    @keyframes metalFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Contenedor */
-    .card {
-      width: 100%;
-      max-width: 520px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.02);
-      backdrop-filter: blur(8px);
-    }
-
-    /* Logo */
-    .logo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 2px solid #4b4b4b;
-      box-shadow: 0 0 24px rgba(180,0,255,0.18);
-      object-fit: cover;
-      margin: 0 auto 16px;
-      display: block;
-    }
-
-    /* Tipografía */
-    h1 {
-      margin: 0 0 8px;
-      font-size: 32px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #f3f3f3;
-    }
-    .tagline {
-      margin: 0 0 22px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       font-size: 16px;
-      color: #bdbdbd;
-      font-style: italic;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    /* grano sutil, como la textura del logo */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
 
-    /* Botones */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 700; line-height: 1.08; margin: 0; letter-spacing: -0.01em; }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin: 0 0 16px;
     }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 10, 11, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-mark { width: 30px; height: 30px; flex-shrink: 0; color: var(--ink); }
+    .brand-name { font-family: "Fraunces", serif; font-weight: 700; letter-spacing: 0.12em; font-size: 14px; text-transform: uppercase; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; }
+    .nav-links a { text-decoration: none; color: var(--ink-2); transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+
     .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
       text-decoration: none;
-      background: #151515;
-      color: #f3f3f3;
-      padding: 14px 18px;
-      border-radius: 8px;
-      border: 1px solid #2a2a2a;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-      transition: transform .18s ease, box-shadow .25s ease, color .25s ease, background .25s ease;
-      box-shadow: 0 0 0 rgba(180,0,255,0);
+      transition: transform .18s ease, box-shadow .25s ease, background .25s ease;
+      white-space: nowrap;
     }
-    .btn:hover {
-      transform: translateY(-2px);
-      color: #be4bff;
-      background: #1b1b1f;
-      box-shadow: 0 0 22px rgba(190, 75, 255, 0.35);
+    .btn:hover { transform: translateY(-2px); }
+    .btn-light { background: var(--ink); color: var(--bg); }
+    .btn-light:hover { box-shadow: 0 8px 30px rgba(235, 230, 218, 0.18); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+    .btn-ghost:hover { background: rgba(235,230,218,.05); }
+    .btn-tonali { background: linear-gradient(135deg, var(--tonali-1), var(--tonali-2)); color: #fff; }
+    .btn-tonali:hover { box-shadow: 0 10px 34px rgba(90, 75, 176, 0.45); }
+    .nav-links .btn { padding: 8px 16px; font-size: 13px; color: var(--bg); }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; padding: 96px 0 72px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 48px; }
+    .hero h1 { font-size: clamp(42px, 6.4vw, 78px); }
+    .hero h1 em { font-style: italic; font-weight: 500; color: var(--ink-2); }
+    .hero p.lead { font-size: 18px; color: var(--ink-2); max-width: 520px; margin: 24px 0 36px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .planet {
+      position: relative;
+      aspect-ratio: 1;
+      width: 100%;
+      max-width: 440px;
+      justify-self: center;
     }
-    .icon {
-      width: 20px;
-      height: 20px;
-      opacity: 0.9;
-      filter: drop-shadow(0 0 4px rgba(190,75,255,0.25));
+    .planet img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+      transform: scale(1.35);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 42%, transparent 68%);
+      mask-image: radial-gradient(circle at 50% 50%, #000 42%, transparent 68%);
+      animation: drift 9s ease-in-out infinite;
+    }
+    .planet::after {
+      content: "";
+      position: absolute; inset: 15%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(90,75,176,.22), transparent 70%);
+      filter: blur(30px);
+      z-index: -1;
+    }
+    @keyframes drift {
+      0%, 100% { transform: scale(1.35) translateY(0) rotate(0deg); }
+      50% { transform: scale(1.35) translateY(-12px) rotate(-2deg); }
     }
 
-    /* Footer */
-    footer { margin-top: 16px; font-size: 12px; color: #9a9a9a; }
-    footer a { color: inherit; opacity: .9; }
+    /* ---------- Sección Tonali ---------- */
+    section { padding: 88px 0; }
+    .section-head { max-width: 640px; margin-bottom: 48px; }
+    .section-head h2 { font-size: clamp(32px, 4.4vw, 52px); }
+    .section-head p { color: var(--ink-2); margin: 16px 0 0; font-size: 17px; }
+
+    .product {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(42,111,138,.35), transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, rgba(90,75,176,.38), transparent 60%),
+        var(--tonali-bg);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      color: #f2f0ff;
+    }
+    .tonali-id { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .tonali-id svg { width: 56px; height: 56px; flex-shrink: 0; filter: drop-shadow(0 6px 20px rgba(90,75,176,.5)); }
+    .tonali-id span { font-family: "Sora", sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em; }
+    .product h3 { font-family: "Sora", sans-serif; font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+    .product .desc { color: rgba(242,240,255,.72); margin: 16px 0 28px; font-size: 17px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .chip {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(242,240,255,.85);
+    }
+
+    /* Mockup de ejercicio */
+    .phone {
+      justify-self: center;
+      width: 100%;
+      max-width: 320px;
+      border-radius: 36px;
+      padding: 12px;
+      background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    }
+    .screen {
+      border-radius: 26px;
+      background: #120e28;
+      padding: 22px 18px 20px;
+      font-family: "Sora", sans-serif;
+    }
+    .screen-top { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(242,240,255,.6); margin-bottom: 14px; }
+    .bar { height: 6px; border-radius: 6px; background: rgba(255,255,255,.08); overflow: hidden; margin-bottom: 22px; }
+    .bar i { display: block; height: 100%; width: 62%; background: linear-gradient(90deg, var(--tonali-1), #4fa3c4); border-radius: 6px; }
+    .q { font-size: 18px; font-weight: 700; margin: 0 0 14px; }
+    .staff {
+      background: #f6f3ff;
+      border-radius: 14px;
+      padding: 10px 6px;
+      margin-bottom: 16px;
+    }
+    .staff svg { width: 100%; height: auto; display: block; }
+    .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .opt {
+      font-size: 13px; font-weight: 600;
+      padding: 11px 8px;
+      text-align: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .opt.ok { background: rgba(79, 201, 140, .16); border-color: rgba(79, 201, 140, .6); color: #8ff0bd; }
+
+
+    /* Catálogo de apps */
+    .apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .app-card {
+      display: flex; align-items: center; gap: 18px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--bg-2);
+      text-decoration: none;
+      transition: transform .18s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    a.app-card:hover { transform: translateY(-3px); border-color: rgba(90,75,176,.6); box-shadow: 0 12px 40px rgba(90,75,176,.2); }
+    .app-icon { width: 60px; height: 60px; flex-shrink: 0; }
+    .app-icon.placeholder {
+      border-radius: 16px; border: 1px dashed rgba(235,230,218,.25);
+      display: grid; place-items: center; font-size: 24px; color: var(--ink-3);
+    }
+    .app-meta { flex: 1; min-width: 0; }
+    .app-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .app-title b { font-size: 18px; }
+    .app-meta p { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; line-height: 1.5; }
+    .badge {
+      font-size: 11px; font-weight: 600; letter-spacing: .04em;
+      padding: 3px 9px; border-radius: 999px;
+      background: rgba(79, 201, 140, .14); color: #8ff0bd; border: 1px solid rgba(79,201,140,.35);
+    }
+    .app-go { font-size: 20px; color: var(--ink-2); }
+    .app-card.soon { border-style: dashed; background: transparent; }
+    .app-card.soon b { color: var(--ink-2); }
+    .foot-link { color: var(--ink-2); text-decoration: none; }
+    .foot-link:hover { color: var(--ink); }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .feature { background: var(--bg-2); padding: 32px 28px; }
+    .feature .ico {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(90,75,176,.25), rgba(42,111,138,.25));
+      border: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 18px;
+    }
+    .feature .ico svg { width: 22px; height: 22px; stroke: #c9c1ff; }
+    .feature h4 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
+    .feature p { margin: 0; color: var(--ink-2); font-size: 15px; }
+
+    .modes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .mode {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 24px;
+    }
+    .mode b { display: block; font-size: 16px; margin-bottom: 4px; }
+    .mode span { color: var(--ink-2); font-size: 14px; }
+
+    /* ---------- Historia ---------- */
+    .story .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .story-logo {
+      aspect-ratio: 1;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #000;
+    }
+    .story-logo img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; transform: scale(1.18); }
+    .story h2 { font-size: clamp(32px, 4.4vw, 52px); }
+    .story p { color: var(--ink-2); font-size: 17px; }
+    .story p strong { color: var(--ink); font-weight: 600; }
+    .timeline { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 14px; }
+    .timeline li { display: flex; gap: 16px; align-items: baseline; }
+    .timeline .k { font-family: "Fraunces", serif; font-size: 13px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); min-width: 92px; }
+    .timeline .v { color: var(--ink); }
+
+    /* ---------- CTA final ---------- */
+    .cta { text-align: center; padding: 104px 0 96px; border-top: 1px solid var(--line); }
+    .cta h2 { font-size: clamp(34px, 5vw, 60px); max-width: 760px; margin: 0 auto; }
+    .cta p { color: var(--ink-2); margin: 18px auto 34px; max-width: 480px; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: 13px; color: var(--ink-3); }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+    /* Aparición al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero { padding: 56px 0 40px; }
+      .hero .wrap, .story .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .planet { max-width: 300px; order: -1; }
+      .product { grid-template-columns: 1fr; padding: 36px 24px; }
+      .features, .modes, .apps { grid-template-columns: 1fr; }
+      .story-logo { max-width: 360px; }
+      section { padding: 64px 0; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      .nav-links a:not(.btn) { display: none; }
+      .brand-name { font-size: 12px; }
+      .hero-ctas .btn { flex: 1 1 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .planet img { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img class="logo" src="img/Logo_1.png" alt="Logo de la banda" />
 
-    <h1>DREAMS OF NEPTUNE</h1>
-    <p class="tagline">New album out now! Listen on your favorite platform.</p>
-
-    <div class="links">
-      <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12S6.21 22.5 12 22.5 22.5 17.79 22.5 12 17.79 1.5 12 1.5m4.92 15.06a.75.75 0 0 1-1.03.24 12.58 12.58 0 0 0-9.79-1.04.75.75 0 0 1-.49-1.42 14.07 14.07 0 0 1 10.95 1.17c.36.2.48.66.24 1.05m1.42-3.14a.93.93 0 0 1-1.27.3 15.94 15.94 0 0 0-12.41-1.31.93.93 0 1 1-.58-1.77 17.8 17.8 0 0 1 13.87 1.47.93.93 0 0 1 .39 1.31m.12-3.24a1.1 1.1 0 0 1-1.5.35 19.07 19.07 0 0 0-15.08-1.57 1.1 1.1 0 1 1-.72-2.07 21.26 21.26 0 0 1 16.82 1.75c.53.28.73.95.39 1.54Z"/></svg>
-        Spotify
+  <!-- Navegación -->
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Dreams Of Neptune, inicio">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="8.5" fill="currentColor"/><ellipse cx="16" cy="17" rx="14" ry="4.6" fill="none" stroke="var(--bg)" stroke-width="3.6" transform="rotate(-18 16 17)"/><ellipse cx="16" cy="17" rx="14" ry="4.6" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-18 16 17)" stroke-dasharray="40 9.5" stroke-dashoffset="-6"/></svg>
+        <span class="brand-name">Dreams Of Neptune</span>
       </a>
-      <a class="btn" href="https://music.apple.com/" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.36 1.64a4.9 4.9 0 0 1-1.24 3.61 4.33 4.33 0 0 1-3.32 1.6 4.7 4.7 0 0 1 1.27-3.5 4.9 4.9 0 0 1 3.29-1.71m4.06 16.27c-.65 1.5-1.43 2.8-2.37 3.91-1.27 1.5-2.67 2.25-4.21 2.27-1.07 0-2.37-.31-3.9-.95-1.54-.64-2.95-.95-4.21-.95-1.4 0-2.88.32-4.45.95l-.67.23.14-.37c.7-1.9 1.52-3.5 2.46-4.78 1.47-1.96 2.95-2.94 4.43-2.94.53 0 1.45.26 2.76.78 1.31.52 2.34.79 3.1.79.49 0 1.31-.21 2.38-.63 1.07-.42 1.9-.63 2.5-.63.19 0 .45.03.79.09-.26 1.01-.51 1.77-.72 2.23m-5.48-9.22c.89 0 1.78.23 2.67.68.89.45 1.62 1.05 2.18 1.8-1.16.7-2.08 1.57-2.75 2.61a7.03 7.03 0 0 0-1.04 2.42 5.2 5.2 0 0 1-2.58-.73c-.77-.46-1.39-1.07-1.85-1.82a5.01 5.01 0 0 1-.71-2.62c0-1.02.29-1.98.86-2.87A4.91 4.91 0 0 1 14.94 8.7Z"/></svg>
-        Apple Music
-      </a>
-      <a class="btn" href="https://www.instagram.com/dreamsofneptune.band?igsh=dGg0eXppeTlzandr" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-2.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></svg>
-        Instagram
-      </a>
-      <a class="btn" href="https://www.tiktok.com/@dreamsofneptune.band?_t=ZS-8zG72UYHD4D&_r=1" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.91 2h2.33a5.96 5.96 0 0 0 4.19 3.76v2.35a8.33 8.33 0 0 1-4.19-1.17v6.7a5.67 5.67 0 1 1-5.67-5.66c.35 0 .69.04 1.02.12v2.4a3.32 3.32 0 1 0 2.34 3.18V2Z"/></svg>
-        TikTok
-      </a>
-      <a class="btn" href="https://www.youtube.com/@DreamsOfNeptuneBand" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 15l5.19-3L10 9v6zm12-6.5v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2z"/></svg>
-        Youtube
-      </a>
+      <div class="nav-links">
+        <a href="#apps">Apps</a>
+        <a href="#historia">Historia</a>
+        <a class="btn btn-light" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali</a>
+      </div>
     </div>
-  </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Estudio de música &amp; tecnología</p>
+        <h1>Herramientas para músicos, <em>hechas por músicos.</em></h1>
+        <p class="lead">Dreams Of Neptune nació como una banda. Hoy creamos apps para que aprender y vivir la música sea más fácil, más corto y más divertido.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Probar Tonali →</a>
+          <a class="btn btn-ghost" href="#apps">Ver apps</a>
+        </div>
+      </div>
+      <div class="planet" aria-hidden="true">
+        <img src="img/Logo_1.png" alt="" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Producto: Tonali -->
+  <section id="apps">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Apps</p>
+        <h2>Apps disponibles</h2>
+        <p>Herramientas de Dreams Of Neptune para aprender y practicar música. Empieza con la que ya está lista.</p>
+      </div>
+
+      <div class="apps reveal">
+        <a class="app-card" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">
+          <svg class="app-icon" viewBox="0 0 48 48" aria-hidden="true">
+            <defs>
+              <linearGradient id="tg2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#5a4bb0"/>
+                <stop offset="1" stop-color="#2a6f8a"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#tg2)"/>
+            <circle cx="19" cy="31" r="6" fill="#fff"/>
+            <path d="M24.5 31V12c5 1 9 4 9 9" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          <div class="app-meta">
+            <div class="app-title"><b>Tonali</b><span class="badge">Disponible</span></div>
+            <p>Teoría musical y entrenamiento auditivo con ejercicios cortos.</p>
+          </div>
+          <span class="app-go" aria-hidden="true">→</span>
+        </a>
+        <div class="app-card soon" aria-label="Próximamente">
+          <div class="app-icon placeholder" aria-hidden="true">+</div>
+          <div class="app-meta">
+            <div class="app-title"><b>Próximamente</b></div>
+            <p>Estamos trabajando en nuevas herramientas para músicos.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="eyebrow" id="tonali" style="margin-top:72px">Destacada</p>
+      <div class="product reveal">
+        <div>
+          <div class="tonali-id">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <defs>
+                <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#5a4bb0"/>
+                  <stop offset="1" stop-color="#2a6f8a"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#tg)"/>
+              <circle cx="19" cy="31" r="6" fill="#fff"/>
+              <path d="M24.5 31V12c5 1 9 4 9 9" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+            <span>Tonali</span>
+          </div>
+          <h3>Practica teoría musical y entrena tu oído con ejercicios cortos.</h3>
+          <p class="desc">Lee notas en el pentagrama, reconoce intervalos, escalas y acordes, y responde tocando. Cada lección que completas te da estrellas y abre la siguiente.</p>
+          <div class="chips">
+            <span class="chip">🎹 Piano</span>
+            <span class="chip">🎸 Guitarra</span>
+            <span class="chip">Bajo</span>
+            <span class="chip">Ukelele</span>
+          </div>
+          <a class="btn btn-light" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Empezar gratis →</a>
+        </div>
+
+        <!-- Vista ilustrativa de un ejercicio -->
+        <div class="phone" aria-hidden="true">
+          <div class="screen">
+            <div class="screen-top"><span>Intervalos · Nivel 2</span><span>🔥 7</span></div>
+            <div class="bar"><i></i></div>
+            <p class="q">¿Qué intervalo es?</p>
+            <div class="staff">
+              <svg viewBox="0 0 260 90">
+                <g stroke="#2b2552" stroke-width="1.2">
+                  <line x1="8" y1="20" x2="252" y2="20"/>
+                  <line x1="8" y1="32" x2="252" y2="32"/>
+                  <line x1="8" y1="44" x2="252" y2="44"/>
+                  <line x1="8" y1="56" x2="252" y2="56"/>
+                  <line x1="8" y1="68" x2="252" y2="68"/>
+                </g>
+                <text x="12" y="70" font-size="62" fill="#2b2552" font-family="Noto Music, serif">𝄞</text>
+                <!-- Do4 (línea adicional) y Sol4 -->
+                <line x1="104" y1="80" x2="132" y2="80" stroke="#2b2552" stroke-width="1.2"/>
+                <ellipse cx="118" cy="80" rx="8" ry="6" fill="#5a4bb0" transform="rotate(-20 118 80)"/>
+                <line x1="125" y1="78" x2="125" y2="44" stroke="#5a4bb0" stroke-width="1.8"/>
+                <ellipse cx="180" cy="62" rx="8" ry="6" fill="#5a4bb0" transform="rotate(-20 180 62)"/>
+                <line x1="187" y1="60" x2="187" y2="26" stroke="#5a4bb0" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div class="opts">
+              <div class="opt">3ª mayor</div>
+              <div class="opt">4ª justa</div>
+              <div class="opt ok">5ª justa ✓</div>
+              <div class="opt">6ª mayor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 10h18M3 14h18M3 18h18"/><circle cx="9" cy="16" r="2.4" fill="#c9c1ff" stroke="none"/></svg></div>
+          <h4>Lectura</h4>
+          <p>Lee notas, escalas y acordes directo en el pentagrama, en clave de sol y de fa.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5l8 7 8-7v14"/></svg></div>
+          <h4>Teoría</h4>
+          <p>Todos los intervalos hasta la octava, escalas mayores, menores, pentatónicas y de blues, y acordes con inversiones.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5a6 6 0 1 1 12 0c0 3.5-3 4.5-3 7.5a3 3 0 0 1-6 0"/><path d="M10 9a2 2 0 1 1 4 0"/></svg></div>
+          <h4>Oído</h4>
+          <p>Escucha y reconoce lo que suena. Con trucos de canciones conocidas para que se te quede para siempre.</p>
+        </div>
+      </div>
+
+      <div class="modes reveal">
+        <div class="mode"><b>Práctica</b><span>Sin prisa y con explicación en cada respuesta.</span></div>
+        <div class="mode"><b>Contrarreloj</b><span>60 segundos para responder todo lo que puedas.</span></div>
+        <div class="mode"><b>Racha</b><span>Sigue hasta el primer error. ¿Cuánto aguantas?</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historia -->
+  <section class="story" id="historia">
+    <div class="wrap">
+      <div class="story-logo reveal">
+        <img src="img/Logo.png" alt="Logo de Dreams Of Neptune" loading="lazy" />
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Historia</p>
+        <h2>De una banda a una marca.</h2>
+        <p>Empezamos como <strong>Dreams Of Neptune</strong>, una banda de metal progresivo. Entre ensayos, compases raros y horas sacando canciones de oído, nos dimos cuenta de algo: aprender música podía ser mucho más accesible.</p>
+        <p>Así nació la idea de convertir la banda en una marca que crea herramientas para músicos de cualquier nivel. <strong>Tonali</strong> es la primera. Vienen más.</p>
+        <ul class="timeline">
+          <li><span class="k">El origen</span><span class="v">Una banda de metal progresivo</span></li>
+          <li><span class="k">Hoy</span><span class="v">Tonali, teoría y oído en minutos al día</span></li>
+          <li><span class="k">Lo que sigue</span><span class="v">Más herramientas para músicos</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2>¿Practicamos un poquito hoy?</h2>
+      <p>Abre Tonali en tu navegador y empieza tu primera lección en menos de un minuto.</p>
+      <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali →</a>
+    </div>
+  </section>
 
   <footer>
-    © 2025 Dreams Of Neptune
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Dreams Of Neptune</span>
+      <a class="foot-link" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Tonali →</a>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Aparición suave al hacer scroll
+    const items = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add("in"));
+    }
+  </script>
 </body>
 </html>
