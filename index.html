@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dreams Of Neptune</title>
-  <meta name="description" content="Dreams Of Neptune crea apps sencillas, sobre todo para músicos. Conoce Tonali (teoría musical y oído) y Dovetick (checklist para equipos)." />
+  <meta name="description" content="Dreams Of Neptune desarrolla apps sencillas y útiles. Conoce Tonali (teoría musical y oído) y Dovetick (checklist para equipos)." />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="icon" type="image/png" href="img/Logo_1.png" />
   <meta property="og:title" content="Dreams Of Neptune" />
@@ -332,24 +332,6 @@
     .mode b { display: block; font-size: 16px; margin-bottom: 4px; }
     .mode span { color: var(--ink-2); font-size: 14px; }
 
-    /* ---------- Historia ---------- */
-    .story .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
-    .story-logo {
-      aspect-ratio: 1;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      background: #000;
-    }
-    .story-logo img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; transform: scale(1.18); }
-    .story h2 { font-size: clamp(32px, 4.4vw, 52px); }
-    .story p { color: var(--ink-2); font-size: 17px; }
-    .story p strong { color: var(--ink); font-weight: 600; }
-    .timeline { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 14px; }
-    .timeline li { display: flex; gap: 16px; align-items: baseline; }
-    .timeline .k { font-family: "Fraunces", serif; font-size: 13px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); min-width: 92px; }
-    .timeline .v { color: var(--ink); }
-
     /* ---------- CTA final ---------- */
     .cta { text-align: center; padding: 104px 0 96px; border-top: 1px solid var(--line); }
     .cta h2 { font-size: clamp(34px, 5vw, 60px); max-width: 760px; margin: 0 auto; }
@@ -369,11 +351,10 @@
     }
     @media (max-width: 900px) {
       .hero { padding: 56px 0 40px; }
-      .hero .wrap, .story .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
       .planet { max-width: 300px; order: -1; }
       .product { grid-template-columns: 1fr; padding: 36px 24px; }
       .features, .modes, .apps { grid-template-columns: 1fr; }
-      .story-logo { max-width: 360px; }
       section { padding: 64px 0; }
     }
     @media (max-width: 640px) {
@@ -401,7 +382,6 @@
       <div class="nav-links">
         <a href="#tonali">Tonali</a>
         <a href="#dovetick">Dovetick</a>
-        <a href="#historia">Historia</a>
         <a class="btn btn-light" href="#apps">Ver apps</a>
       </div>
     </div>
@@ -411,12 +391,12 @@
   <header class="hero" id="top">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Estudio de apps</p>
+        <p class="eyebrow">Desarrollo de apps</p>
         <h1>Apps sencillas para <em>crear, aprender y organizarte.</em></h1>
-        <p class="lead">Dreams Of Neptune nació como una banda. Hoy diseñamos apps útiles: la mayoría para músicos, y algunas para el día a día.</p>
+        <p class="lead">Diseñamos y desarrollamos apps útiles y fáciles de usar, que funcionan desde el navegador en cualquier dispositivo.</p>
         <div class="hero-ctas">
           <a class="btn btn-light" href="#apps">Ver nuestras apps →</a>
-          <a class="btn btn-ghost" href="#historia">Nuestra historia</a>
+          <a class="btn btn-ghost" href="#tonali">Conoce Tonali</a>
         </div>
       </div>
       <div class="planet" aria-hidden="true">
@@ -468,7 +448,7 @@
           <div class="app-icon placeholder" aria-hidden="true">+</div>
           <div class="app-meta">
             <div class="app-title"><b>Próximamente</b></div>
-            <p>Más apps en camino, sobre todo para músicos.</p>
+            <p>Estamos desarrollando nuevas apps. Muy pronto aquí.</p>
           </div>
         </div>
       </div>
@@ -622,26 +602,6 @@
           <h4>Fotos, reportes y avisos</h4>
           <p>Tu equipo sube fotos y te reporta lo que pasa. Convierte un reporte en tarea con un toque y recibe avisos en el celular.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Historia -->
-  <section class="story" id="historia">
-    <div class="wrap">
-      <div class="story-logo reveal">
-        <img src="img/Logo.png" alt="Logo de Dreams Of Neptune" loading="lazy" />
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">Historia</p>
-        <h2>De una banda a una marca.</h2>
-        <p>Empezamos como <strong>Dreams Of Neptune</strong>, una banda de metal progresivo. Entre ensayos, compases raros y horas sacando canciones de oído, descubrimos que nos gusta tanto construir herramientas como hacer música.</p>
-        <p>Hoy la banda es una marca que crea apps sencillas para problemas reales. La música sigue siendo nuestro centro, pero no nuestro límite: <strong>Tonali</strong> es para músicos y <strong>Dovetick</strong> es para cualquier equipo que necesite organizarse.</p>
-        <ul class="timeline">
-          <li><span class="k">El origen</span><span class="v">Una banda de metal progresivo</span></li>
-          <li><span class="k">Hoy</span><span class="v">Tonali y Dovetick</span></li>
-          <li><span class="k">Lo que sigue</span><span class="v">Más apps, sobre todo para músicos</span></li>
-        </ul>
       </div>
     </div>
   </section>
