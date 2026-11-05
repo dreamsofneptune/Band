@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dreams Of Neptune</title>
-  <meta name="description" content="Dreams Of Neptune crea herramientas para músicos. Conoce Tonali: practica teoría musical y entrena tu oído con ejercicios cortos." />
+  <meta name="description" content="Dreams Of Neptune crea apps sencillas, sobre todo para músicos. Conoce Tonali (teoría musical y oído) y Dovetick (checklist para equipos)." />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="icon" type="image/png" href="img/Logo_1.png" />
   <meta property="og:title" content="Dreams Of Neptune" />
-  <meta property="og:description" content="Herramientas para músicos, hechas por músicos. Conoce Tonali." />
+  <meta property="og:description" content="Apps sencillas para crear, aprender y organizarte. Conoce Tonali y Dovetick." />
   <meta property="og:image" content="img/Logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -216,7 +216,7 @@
 
 
     /* Catálogo de apps */
-    .apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .app-card {
       display: flex; align-items: center; gap: 18px;
       padding: 22px;
@@ -246,6 +246,54 @@
     .app-card.soon b { color: var(--ink-2); }
     .foot-link { color: var(--ink-2); text-decoration: none; }
     .foot-link:hover { color: var(--ink); }
+
+
+    /* Dovetick */
+    .showcase { padding-top: 24px; }
+    .product.dove {
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(34,197,94,.22), transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, rgba(20,83,45,.6), transparent 60%),
+        #06130b;
+      color: #effaf2;
+    }
+    .product.dove .desc { color: rgba(239,250,242,.72); }
+    .product.dove .tonali-id svg { filter: drop-shadow(0 6px 20px rgba(34,197,94,.35)); }
+    .dove-screen { background: #0b1d12; }
+    .dove-screen .bar i { width: 75%; background: linear-gradient(90deg, #15803d, #4ade80); }
+    .checklist { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+    .checklist li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600;
+      padding: 11px 12px; border-radius: 12px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+    }
+    .checklist li em { font-style: normal; margin-left: auto; }
+    .checklist li.done { color: rgba(239,250,242,.55); }
+    .checklist .box {
+      width: 20px; height: 20px; flex-shrink: 0; border-radius: 6px;
+      border: 2px solid rgba(255,255,255,.3);
+      display: grid; place-items: center; font-size: 12px; color: #fff;
+    }
+    .checklist li.done .box { background: #16a34a; border-color: #16a34a; }
+    .report {
+      text-align: center; font-size: 13px; font-weight: 600;
+      padding: 11px; border-radius: 12px;
+      border: 1px dashed rgba(74,222,128,.45); color: #86efac;
+    }
+    .showcase.dove .feature .ico { background: linear-gradient(135deg, rgba(20,83,45,.5), rgba(34,197,94,.18)); }
+    .showcase.dove .feature .ico svg { stroke: #86efac; }
+    .btn-dove { background: linear-gradient(135deg, #14532d, #16a34a); color: #fff; }
+    .btn-dove:hover { box-shadow: 0 10px 34px rgba(22, 163, 74, 0.4); }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cat {
+      font-size: 11px; font-weight: 600; letter-spacing: .04em;
+      padding: 3px 9px; border-radius: 999px;
+      background: rgba(90,75,176,.18); color: #c9c1ff; border: 1px solid rgba(90,75,176,.45);
+    }
+    .app-card.dove .cat { background: rgba(22,163,74,.15); color: #86efac; border-color: rgba(22,163,74,.45); }
+    a.app-card.dove:hover { border-color: rgba(22,163,74,.6); box-shadow: 0 12px 40px rgba(22,163,74,.18); }
+    .foot-links { display: flex; gap: 20px; }
 
     /* Features */
     .features {
@@ -316,6 +364,9 @@
     .reveal.in { opacity: 1; transform: none; }
 
     /* ---------- Responsive ---------- */
+    @media (max-width: 1080px) {
+      .apps { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 900px) {
       .hero { padding: 56px 0 40px; }
       .hero .wrap, .story .wrap { grid-template-columns: 1fr; gap: 32px; }
@@ -348,9 +399,10 @@
         <span class="brand-name">Dreams Of Neptune</span>
       </a>
       <div class="nav-links">
-        <a href="#apps">Apps</a>
+        <a href="#tonali">Tonali</a>
+        <a href="#dovetick">Dovetick</a>
         <a href="#historia">Historia</a>
-        <a class="btn btn-light" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali</a>
+        <a class="btn btn-light" href="#apps">Ver apps</a>
       </div>
     </div>
   </nav>
@@ -359,12 +411,12 @@
   <header class="hero" id="top">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Estudio de música &amp; tecnología</p>
-        <h1>Herramientas para músicos, <em>hechas por músicos.</em></h1>
-        <p class="lead">Dreams Of Neptune nació como una banda. Hoy creamos apps para que aprender y vivir la música sea más fácil, más corto y más divertido.</p>
+        <p class="eyebrow">Estudio de apps</p>
+        <h1>Apps sencillas para <em>crear, aprender y organizarte.</em></h1>
+        <p class="lead">Dreams Of Neptune nació como una banda. Hoy diseñamos apps útiles: la mayoría para músicos, y algunas para el día a día.</p>
         <div class="hero-ctas">
-          <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Probar Tonali →</a>
-          <a class="btn btn-ghost" href="#apps">Ver apps</a>
+          <a class="btn btn-light" href="#apps">Ver nuestras apps →</a>
+          <a class="btn btn-ghost" href="#historia">Nuestra historia</a>
         </div>
       </div>
       <div class="planet" aria-hidden="true">
@@ -373,13 +425,13 @@
     </div>
   </header>
 
-  <!-- Producto: Tonali -->
+  <!-- Catálogo de apps -->
   <section id="apps">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Apps</p>
         <h2>Apps disponibles</h2>
-        <p>Herramientas de Dreams Of Neptune para aprender y practicar música. Empieza con la que ya está lista.</p>
+        <p>Cada app resuelve una cosa y la resuelve bien. Todas funcionan desde el navegador, sin descargar nada.</p>
       </div>
 
       <div class="apps reveal">
@@ -396,8 +448,19 @@
             <path d="M24.5 31V12c5 1 9 4 9 9" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
           </svg>
           <div class="app-meta">
-            <div class="app-title"><b>Tonali</b><span class="badge">Disponible</span></div>
+            <div class="app-title"><b>Tonali</b><span class="cat">Música</span></div>
             <p>Teoría musical y entrenamiento auditivo con ejercicios cortos.</p>
+          </div>
+          <span class="app-go" aria-hidden="true">→</span>
+        </a>
+        <a class="app-card dove" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">
+          <svg class="app-icon" viewBox="0 0 512 512" aria-hidden="true">
+            <rect width="512" height="512" rx="112" fill="#14532d"/>
+            <path d="M150 268l72 72 140-160" fill="none" stroke="#fff" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="app-meta">
+            <div class="app-title"><b>Dovetick</b><span class="cat">Equipos y tareas</span></div>
+            <p>Checklist para coordinar a tu equipo: asigna tareas y ve el avance del día.</p>
           </div>
           <span class="app-go" aria-hidden="true">→</span>
         </a>
@@ -405,12 +468,17 @@
           <div class="app-icon placeholder" aria-hidden="true">+</div>
           <div class="app-meta">
             <div class="app-title"><b>Próximamente</b></div>
-            <p>Estamos trabajando en nuevas herramientas para músicos.</p>
+            <p>Más apps en camino, sobre todo para músicos.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <p class="eyebrow" id="tonali" style="margin-top:72px">Destacada</p>
+  <!-- Tonali -->
+  <section class="showcase" id="tonali">
+    <div class="wrap">
+      <p class="eyebrow reveal">Música · Tonali</p>
       <div class="product reveal">
         <div>
           <div class="tonali-id">
@@ -435,7 +503,7 @@
             <span class="chip">Bajo</span>
             <span class="chip">Ukelele</span>
           </div>
-          <a class="btn btn-light" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Empezar gratis →</a>
+          <a class="btn btn-light" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali →</a>
         </div>
 
         <!-- Vista ilustrativa de un ejercicio -->
@@ -454,7 +522,6 @@
                   <line x1="8" y1="68" x2="252" y2="68"/>
                 </g>
                 <text x="12" y="70" font-size="62" fill="#2b2552" font-family="Noto Music, serif">𝄞</text>
-                <!-- Do4 (línea adicional) y Sol4 -->
                 <line x1="104" y1="80" x2="132" y2="80" stroke="#2b2552" stroke-width="1.2"/>
                 <ellipse cx="118" cy="80" rx="8" ry="6" fill="#5a4bb0" transform="rotate(-20 118 80)"/>
                 <line x1="125" y1="78" x2="125" y2="44" stroke="#5a4bb0" stroke-width="1.8"/>
@@ -498,6 +565,67 @@
     </div>
   </section>
 
+  <!-- Dovetick -->
+  <section class="showcase dove" id="dovetick">
+    <div class="wrap">
+      <p class="eyebrow reveal">Equipos y tareas · Dovetick</p>
+      <div class="product dove reveal">
+        <div>
+          <div class="tonali-id">
+            <svg viewBox="0 0 512 512" aria-hidden="true">
+              <rect width="512" height="512" rx="112" fill="#14532d"/>
+              <path d="M150 268l72 72 140-160" fill="none" stroke="#fff" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Dovetick</span>
+          </div>
+          <h3>Las tareas de tu equipo, al día.</h3>
+          <p class="desc">Tú coordinas: creas el equipo, asignas las tareas y das acceso a quienes colaboran contigo. Cada persona entra, ve qué le toca hoy y lo marca como hecho.</p>
+          <div class="chips">
+            <span class="chip">👥 Coordinadores</span>
+            <span class="chip">✅ Colaboradores</span>
+            <span class="chip">📷 Fotos</span>
+            <span class="chip">🔔 Avisos</span>
+          </div>
+          <a class="btn btn-light" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Abrir Dovetick →</a>
+        </div>
+
+        <!-- Vista ilustrativa del checklist -->
+        <div class="phone" aria-hidden="true">
+          <div class="screen dove-screen">
+            <div class="screen-top"><span>Hoy · jueves</span><span>3 de 4</span></div>
+            <div class="bar"><i></i></div>
+            <p class="q">¡Hola, Ana!</p>
+            <ul class="checklist">
+              <li class="done"><span class="box">✓</span>Dar de comer a los perros</li>
+              <li class="done"><span class="box">✓</span>Regar el jardín <em>📷</em></li>
+              <li class="done"><span class="box">✓</span>Revisar el filtro de la alberca</li>
+              <li><span class="box"></span>Sacar la basura</li>
+            </ul>
+            <div class="report">＋ Reportar algo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.5 3.5 5.2"/></svg></div>
+          <h4>Tu equipo, tus reglas</h4>
+          <p>Agrega colaboradores y la app les crea usuario y contraseña. Suma a otros coordinadores para que te ayuden.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="m9 15 2 2 4-4"/></svg></div>
+          <h4>Tareas que se repiten</h4>
+          <p>Todos los días, ciertos días de la semana o un día específico del mes. Lo configuras una vez.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+          <h4>Fotos, reportes y avisos</h4>
+          <p>Tu equipo sube fotos y te reporta lo que pasa. Convierte un reporte en tarea con un toque y recibe avisos en el celular.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Historia -->
   <section class="story" id="historia">
     <div class="wrap">
@@ -507,12 +635,12 @@
       <div class="reveal">
         <p class="eyebrow">Historia</p>
         <h2>De una banda a una marca.</h2>
-        <p>Empezamos como <strong>Dreams Of Neptune</strong>, una banda de metal progresivo. Entre ensayos, compases raros y horas sacando canciones de oído, nos dimos cuenta de algo: aprender música podía ser mucho más accesible.</p>
-        <p>Así nació la idea de convertir la banda en una marca que crea herramientas para músicos de cualquier nivel. <strong>Tonali</strong> es la primera. Vienen más.</p>
+        <p>Empezamos como <strong>Dreams Of Neptune</strong>, una banda de metal progresivo. Entre ensayos, compases raros y horas sacando canciones de oído, descubrimos que nos gusta tanto construir herramientas como hacer música.</p>
+        <p>Hoy la banda es una marca que crea apps sencillas para problemas reales. La música sigue siendo nuestro centro, pero no nuestro límite: <strong>Tonali</strong> es para músicos y <strong>Dovetick</strong> es para cualquier equipo que necesite organizarse.</p>
         <ul class="timeline">
           <li><span class="k">El origen</span><span class="v">Una banda de metal progresivo</span></li>
-          <li><span class="k">Hoy</span><span class="v">Tonali, teoría y oído en minutos al día</span></li>
-          <li><span class="k">Lo que sigue</span><span class="v">Más herramientas para músicos</span></li>
+          <li><span class="k">Hoy</span><span class="v">Tonali y Dovetick</span></li>
+          <li><span class="k">Lo que sigue</span><span class="v">Más apps, sobre todo para músicos</span></li>
         </ul>
       </div>
     </div>
@@ -521,16 +649,22 @@
   <!-- CTA final -->
   <section class="cta">
     <div class="wrap reveal">
-      <h2>¿Practicamos un poquito hoy?</h2>
-      <p>Abre Tonali en tu navegador y empieza tu primera lección en menos de un minuto.</p>
-      <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali →</a>
+      <h2>Elige tu app y empieza hoy.</h2>
+      <p>Las dos funcionan en tu navegador, en la compu o en el celular.</p>
+      <div class="cta-btns">
+        <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali →</a>
+        <a class="btn btn-dove" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Abrir Dovetick →</a>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
       <span>© <span id="year">2026</span> Dreams Of Neptune</span>
-      <a class="foot-link" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Tonali →</a>
+      <div class="foot-links">
+        <a class="foot-link" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Tonali</a>
+        <a class="foot-link" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Dovetick</a>
+      </div>
     </div>
   </footer>
 
