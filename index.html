@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dreams Of Neptune</title>
-  <meta name="description" content="Dreams Of Neptune desarrolla apps sencillas y útiles. Conoce Tonali (teoría musical y oído), Dovetick (checklist para equipos) y Odeion (tabs y partituras)." />
+  <meta name="description" content="Dreams Of Neptune desarrolla apps sencillas y útiles. Conoce Tonali (teoría musical y oído), Dovetick (checklist para equipos), Odeion (tabs y partituras) y Cuadra (ensayos de banda)." />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="icon" type="image/png" href="img/Logo_1.png" />
   <meta property="og:title" content="Dreams Of Neptune" />
-  <meta property="og:description" content="Apps sencillas para crear, aprender y organizarte. Conoce Tonali, Dovetick y Odeion." />
+  <meta property="og:description" content="Apps sencillas para crear, aprender y organizarte. Conoce Tonali, Dovetick, Odeion y Cuadra." />
   <meta property="og:image" content="img/Logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -326,6 +326,40 @@
     .app-card.odeion .cat { background: rgba(227,164,60,.14); color: #f3c97a; border-color: rgba(227,164,60,.45); }
     a.app-card.odeion:hover { border-color: rgba(227,164,60,.6); box-shadow: 0 12px 40px rgba(227,164,60,.16); }
 
+    /* Cuadra */
+    .product.cuadra {
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(217,119,43,.24), transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, rgba(122,46,14,.55), transparent 60%),
+        #140b07;
+      color: #fbefe6;
+    }
+    .product.cuadra .desc { color: rgba(251,239,230,.72); }
+    .product.cuadra .tonali-id svg { filter: drop-shadow(0 6px 20px rgba(217,119,43,.4)); }
+    .cuadra-screen { background: #1d110b; }
+    .cuadra-screen .bar i { width: 66%; background: linear-gradient(90deg, #7a2e0e, #d9772b); }
+    .setlist { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+    .setlist li {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      font-size: 13px; font-weight: 600;
+      padding: 11px 12px; border-radius: 12px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+    }
+    .setlist .st { font-size: 11px; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+    .setlist .st.ok { background: rgba(79,201,140,.16); color: #8ff0bd; }
+    .setlist .st.wip { background: rgba(217,119,43,.2); color: #f6b27a; }
+    .setlist .st.todo { background: rgba(255,255,255,.08); color: rgba(251,239,230,.6); }
+    .note {
+      font-size: 12px; padding: 11px 12px; border-radius: 12px;
+      border: 1px dashed rgba(217,119,43,.5); color: #f6b27a;
+    }
+    .showcase.cuadra .feature .ico { background: linear-gradient(135deg, rgba(122,46,14,.55), rgba(217,119,43,.2)); }
+    .showcase.cuadra .feature .ico svg { stroke: #f6b27a; }
+    .btn-cuadra { background: linear-gradient(135deg, #7a2e0e, #d9772b); color: #fff; }
+    .btn-cuadra:hover { box-shadow: 0 10px 34px rgba(217, 119, 43, 0.4); }
+    .app-card.cuadra .cat { background: rgba(217,119,43,.15); color: #f6b27a; border-color: rgba(217,119,43,.45); }
+    a.app-card.cuadra:hover { border-color: rgba(217,119,43,.6); box-shadow: 0 12px 40px rgba(217,119,43,.18); }
+
     /* Features */
     .features {
       display: grid;
@@ -388,9 +422,11 @@
       .features, .modes, .apps { grid-template-columns: 1fr; }
       section { padding: 64px 0; }
     }
+    @media (max-width: 900px) {
+      .nav-links a:not(.btn) { display: none; }
+    }
     @media (max-width: 640px) {
       .wrap { padding: 0 16px; }
-      .nav-links a:not(.btn) { display: none; }
       .brand-name { font-size: 12px; }
       .hero-ctas .btn { flex: 1 1 100%; }
     }
@@ -414,6 +450,7 @@
         <a href="#tonali">Tonali</a>
         <a href="#dovetick">Dovetick</a>
         <a href="#odeion">Odeion</a>
+        <a href="#cuadra">Cuadra</a>
         <a href="#nosotros">Quiénes somos</a>
         <a class="btn btn-light" href="#apps">Ver apps</a>
       </div>
@@ -487,6 +524,26 @@
           <div class="app-meta">
             <div class="app-title"><b>Odeion</b><span class="cat">Música</span></div>
             <p>Abre, escucha y practica tabs y partituras desde cualquier lugar.</p>
+          </div>
+          <span class="app-go" aria-hidden="true">→</span>
+        </a>
+        <a class="app-card cuadra" href="https://cuadra-ensayos.vercel.app/" target="_blank" rel="noopener">
+          <svg class="app-icon" viewBox="0 0 48 48" aria-hidden="true">
+            <defs>
+              <linearGradient id="cg2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#7a2e0e"/>
+                <stop offset="1" stop-color="#d9772b"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#cg2)"/>
+            <rect x="12" y="12" width="10" height="10" rx="2.5" fill="#fff"/>
+            <rect x="26" y="12" width="10" height="10" rx="2.5" fill="#fff"/>
+            <rect x="12" y="26" width="10" height="10" rx="2.5" fill="#fff"/>
+            <rect x="27" y="27" width="8" height="8" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+          </svg>
+          <div class="app-meta">
+            <div class="app-title"><b>Cuadra</b><span class="cat">Bandas</span></div>
+            <p>Organiza los ensayos de tu banda: qué le toca a cada quien y qué ya salió.</p>
           </div>
           <span class="app-go" aria-hidden="true">→</span>
         </a>
@@ -737,6 +794,76 @@
     </div>
   </section>
 
+  <!-- Cuadra -->
+  <section class="showcase cuadra" id="cuadra">
+    <div class="wrap">
+      <p class="eyebrow reveal">Bandas · Cuadra</p>
+      <div class="product cuadra reveal">
+        <div>
+          <div class="tonali-id">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <defs>
+                <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#7a2e0e"/>
+                  <stop offset="1" stop-color="#d9772b"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#cg)"/>
+              <rect x="12" y="12" width="10" height="10" rx="2.5" fill="#fff"/>
+              <rect x="26" y="12" width="10" height="10" rx="2.5" fill="#fff"/>
+              <rect x="12" y="26" width="10" height="10" rx="2.5" fill="#fff"/>
+              <rect x="27" y="27" width="8" height="8" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+            </svg>
+            <span>Cuadra</span>
+          </div>
+          <h3>Lo que te toca sacar, las notas de la banda y lo que ya salió.</h3>
+          <p class="desc">Arma el setlist con las secciones de cada rola y un link para escucharla. Cada quien ve qué le toca estudiar, la banda deja notas por sección y marcan lo que ya salió en el ensayo.</p>
+          <div class="chips">
+            <span class="chip">🎤 Setlist</span>
+            <span class="chip">📝 Notas por sección</span>
+            <span class="chip">✅ Tu avance</span>
+            <span class="chip">🔗 Invita a la banda</span>
+          </div>
+          <a class="btn btn-light" href="https://cuadra-ensayos.vercel.app/" target="_blank" rel="noopener">Abrir Cuadra →</a>
+        </div>
+
+        <!-- Vista ilustrativa del setlist -->
+        <div class="phone" aria-hidden="true">
+          <div class="screen cuadra-screen">
+            <div class="screen-top"><span>Mi estudio · Ensayo del sábado</span><span>4 de 6</span></div>
+            <div class="bar"><i></i></div>
+            <p class="q">Setlist</p>
+            <ul class="setlist">
+              <li>1. Intro<span class="st ok">Salió en banda</span></li>
+              <li>2. Marea<span class="st ok">Ya te la sabes</span></li>
+              <li>3. Órbita<span class="st wip">En proceso</span></li>
+              <li>4. Tritón<span class="st todo">Por sacar</span></li>
+            </ul>
+            <div class="note">📝 Puente: entra medio tiempo antes, después del break.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+          <h4>Setlist con secciones</h4>
+          <p>Cada rola con sus partes, su tonalidad y una versión de referencia en YouTube, Spotify o SoundCloud.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h4>Notas de la banda</h4>
+          <p>Deja notas por sección, para todos o solo para alguien, y márcalas como resueltas.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div>
+          <h4>Lo que ya salió</h4>
+          <p>Cada quien marca lo que ya se sabe. Cuando todos tienen su parte, a tocarla juntos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Quiénes somos -->
   <section id="nosotros">
     <div class="wrap">
@@ -775,6 +902,7 @@
         <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali →</a>
         <a class="btn btn-dove" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Abrir Dovetick →</a>
         <a class="btn btn-odeion" href="https://odeion.vercel.app/" target="_blank" rel="noopener">Abrir Odeion →</a>
+        <a class="btn btn-cuadra" href="https://cuadra-ensayos.vercel.app/" target="_blank" rel="noopener">Abrir Cuadra →</a>
       </div>
     </div>
   </section>
@@ -786,6 +914,7 @@
         <a class="foot-link" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Tonali</a>
         <a class="foot-link" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Dovetick</a>
         <a class="foot-link" href="https://odeion.vercel.app/" target="_blank" rel="noopener">Odeion</a>
+        <a class="foot-link" href="https://cuadra-ensayos.vercel.app/" target="_blank" rel="noopener">Cuadra</a>
       </div>
     </div>
   </footer>
