@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dreams Of Neptune</title>
-  <meta name="description" content="Dreams Of Neptune desarrolla apps sencillas y útiles. Conoce Tonali (teoría musical y oído) y Dovetick (checklist para equipos)." />
+  <meta name="description" content="Dreams Of Neptune desarrolla apps sencillas y útiles. Conoce Tonali (teoría musical y oído), Dovetick (checklist para equipos) y Odeion (tabs y partituras)." />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="icon" type="image/png" href="img/Logo_1.png" />
   <meta property="og:title" content="Dreams Of Neptune" />
-  <meta property="og:description" content="Apps sencillas para crear, aprender y organizarte. Conoce Tonali y Dovetick." />
+  <meta property="og:description" content="Apps sencillas para crear, aprender y organizarte. Conoce Tonali, Dovetick y Odeion." />
   <meta property="og:image" content="img/Logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -295,6 +295,37 @@
     a.app-card.dove:hover { border-color: rgba(22,163,74,.6); box-shadow: 0 12px 40px rgba(22,163,74,.18); }
     .foot-links { display: flex; gap: 20px; }
 
+    /* Odeion */
+    .product.odeion {
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(227,164,60,.22), transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, rgba(120,72,20,.45), transparent 60%),
+        #14110f;
+      color: #f4ecdf;
+    }
+    .product.odeion .desc { color: rgba(244,236,223,.72); }
+    .product.odeion .tonali-id svg { filter: drop-shadow(0 6px 20px rgba(227,164,60,.35)); }
+    .odeion-screen { background: #1c1814; }
+    .odeion-screen .bar i { width: 48%; background: linear-gradient(90deg, #b9781f, #e3a43c); }
+    .tab {
+      background: #f4ecdf; border-radius: 14px;
+      padding: 10px 6px; margin-bottom: 16px;
+    }
+    .tab svg { width: 100%; height: auto; display: block; }
+    .player { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .player div {
+      font-size: 12px; font-weight: 600; text-align: center;
+      padding: 10px 6px; border-radius: 12px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+    }
+    .player .on { background: rgba(227,164,60,.16); border-color: rgba(227,164,60,.6); color: #f3c97a; }
+    .showcase.odeion .feature .ico { background: linear-gradient(135deg, rgba(120,72,20,.5), rgba(227,164,60,.18)); }
+    .showcase.odeion .feature .ico svg { stroke: #f3c97a; }
+    .btn-odeion { background: linear-gradient(135deg, #8a5414, #e3a43c); color: #14110f; }
+    .btn-odeion:hover { box-shadow: 0 10px 34px rgba(227, 164, 60, 0.38); }
+    .app-card.odeion .cat { background: rgba(227,164,60,.14); color: #f3c97a; border-color: rgba(227,164,60,.45); }
+    a.app-card.odeion:hover { border-color: rgba(227,164,60,.6); box-shadow: 0 12px 40px rgba(227,164,60,.16); }
+
     /* Features */
     .features {
       display: grid;
@@ -382,6 +413,7 @@
       <div class="nav-links">
         <a href="#tonali">Tonali</a>
         <a href="#dovetick">Dovetick</a>
+        <a href="#odeion">Odeion</a>
         <a href="#nosotros">Quiénes somos</a>
         <a class="btn btn-light" href="#apps">Ver apps</a>
       </div>
@@ -442,6 +474,19 @@
           <div class="app-meta">
             <div class="app-title"><b>Dovetick</b><span class="cat">Equipos y tareas</span></div>
             <p>Checklist para coordinar a tu equipo: asigna tareas y ve el avance del día.</p>
+          </div>
+          <span class="app-go" aria-hidden="true">→</span>
+        </a>
+        <a class="app-card odeion" href="https://odeion.vercel.app/" target="_blank" rel="noopener">
+          <svg class="app-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#14110f"/>
+            <path d="M12 46 A20 20 0 0 1 52 46" fill="none" stroke="#e3a43c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M20 46 A12 12 0 0 1 44 46" fill="none" stroke="#e3a43c" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="32" cy="46" r="4" fill="#f4ecdf"/>
+          </svg>
+          <div class="app-meta">
+            <div class="app-title"><b>Odeion</b><span class="cat">Música</span></div>
+            <p>Abre, escucha y practica tabs y partituras desde cualquier lugar.</p>
           </div>
           <span class="app-go" aria-hidden="true">→</span>
         </a>
@@ -607,6 +652,91 @@
     </div>
   </section>
 
+  <!-- Odeion -->
+  <section class="showcase odeion" id="odeion">
+    <div class="wrap">
+      <p class="eyebrow reveal">Música · Odeion</p>
+      <div class="product odeion reveal">
+        <div>
+          <div class="tonali-id">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#14110f"/>
+              <path d="M12 46 A20 20 0 0 1 52 46" fill="none" stroke="#e3a43c" stroke-width="5" stroke-linecap="round"/>
+              <path d="M20 46 A12 12 0 0 1 44 46" fill="none" stroke="#e3a43c" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="32" cy="46" r="4" fill="#f4ecdf"/>
+            </svg>
+            <span>Odeion</span>
+          </div>
+          <h3>Tus tabs y partituras, en un solo lugar.</h3>
+          <p class="desc">Sube tus archivos Guitar Pro o MusicXML y velos como partitura y tab mientras suenan. Baja la velocidad, repite y toca con el metrónomo hasta que te salga.</p>
+          <div class="chips">
+            <span class="chip">🎸 Guitar Pro</span>
+            <span class="chip">🎼 MusicXML</span>
+            <span class="chip">⏱️ Metrónomo</span>
+            <span class="chip">☁️ En la nube</span>
+          </div>
+          <a class="btn btn-light" href="https://odeion.vercel.app/" target="_blank" rel="noopener">Abrir Odeion →</a>
+        </div>
+
+        <!-- Vista ilustrativa del visor -->
+        <div class="phone" aria-hidden="true">
+          <div class="screen odeion-screen">
+            <div class="screen-top"><span>Mi biblioteca · Riff</span><span>♩ 90</span></div>
+            <div class="bar"><i></i></div>
+            <p class="q">Compás 12</p>
+            <div class="tab">
+              <svg viewBox="0 0 260 96">
+                <g stroke="#3a3128" stroke-width="1">
+                  <line x1="8" y1="14" x2="252" y2="14"/>
+                  <line x1="8" y1="27" x2="252" y2="27"/>
+                  <line x1="8" y1="40" x2="252" y2="40"/>
+                  <line x1="8" y1="53" x2="252" y2="53"/>
+                  <line x1="8" y1="66" x2="252" y2="66"/>
+                  <line x1="8" y1="79" x2="252" y2="79"/>
+                  <line x1="8" y1="14" x2="8" y2="79" stroke-width="1.6"/>
+                  <line x1="252" y1="14" x2="252" y2="79" stroke-width="1.6"/>
+                </g>
+                <rect x="118" y="6" width="26" height="82" rx="6" fill="#e3a43c" opacity=".28"/>
+                <g font-family="Sora, sans-serif" font-size="12" font-weight="700" fill="#3a3128" text-anchor="middle">
+                  <text x="36" y="83">0</text>
+                  <text x="66" y="70">2</text>
+                  <text x="96" y="57">2</text>
+                  <text x="131" y="44">1</text>
+                  <text x="161" y="57">2</text>
+                  <text x="191" y="70">2</text>
+                  <text x="221" y="83">0</text>
+                </g>
+              </svg>
+            </div>
+            <div class="player">
+              <div>▶ Play</div>
+              <div class="on">75%</div>
+              <div class="on">⟲ Repetir</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <h4>Abre y escucha</h4>
+          <p>Archivos Guitar Pro (.gp3, .gp4, .gp5, .gpx, .gp) y MusicXML con partitura, tab y reproducción.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/></svg></div>
+          <h4>Practica a tu ritmo</h4>
+          <p>Baja la velocidad, repite las partes difíciles y toca con el metrónomo.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+          <h4>Tu biblioteca</h4>
+          <p>Guarda tus canciones en la nube y ábrelas desde cualquier dispositivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Quiénes somos -->
   <section id="nosotros">
     <div class="wrap">
@@ -640,10 +770,11 @@
   <section class="cta">
     <div class="wrap reveal">
       <h2>Elige tu app y empieza hoy.</h2>
-      <p>Las dos funcionan en tu navegador, en la compu o en el celular.</p>
+      <p>Todas funcionan en tu navegador, en la compu o en el celular.</p>
       <div class="cta-btns">
         <a class="btn btn-tonali" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Abrir Tonali →</a>
         <a class="btn btn-dove" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Abrir Dovetick →</a>
+        <a class="btn btn-odeion" href="https://odeion.vercel.app/" target="_blank" rel="noopener">Abrir Odeion →</a>
       </div>
     </div>
   </section>
@@ -654,6 +785,7 @@
       <div class="foot-links">
         <a class="foot-link" href="https://tonali-rosy.vercel.app/" target="_blank" rel="noopener">Tonali</a>
         <a class="foot-link" href="https://dovetick.vercel.app/" target="_blank" rel="noopener">Dovetick</a>
+        <a class="foot-link" href="https://odeion.vercel.app/" target="_blank" rel="noopener">Odeion</a>
       </div>
     </div>
   </footer>
